@@ -1,19 +1,42 @@
+import Link from "next/link";
 import React from "react";
 
 type Props = {};
 
 export default function Navbar({}: Props) {
   const time = new Date();
+
+  const menu = [
+    { name: "Safety Control", Link: "http://localhost:3000/SafetyControl" },
+    { name: "DEKIDAKA", Link: "http://localhost:3000/DEKIDAKA" },
+    { name: "Manpower", Link: "http://localhost:3000/Manpower" },
+    { name: "Inventory", Link: "http://localhost:3000/Inventory" },
+    { name: "TruckTime", Link: "http://localhost:3000/TruckTime" },
+    { name: "Quality", Link: "http://localhost:3000/Quality" },
+  ];
   return (
     <div className="flex justify-between">
       <div>
         <h1 className="text-4xl font-bold pt-2 pl-2">
           EPD Manufacturing Top View Management
         </h1>
-        <h2 className="text-base pt-3 pl-2">MORE INFORMATION</h2>
+        <div className="flex items-center pt-4 w-full">
+          <div className="pl-4 mr-20">
+            <h2 className="text-[1rem]">MORE INFORMATION</h2>
+          </div>
+          <div className="flex gap-x-32">
+            {menu.map((e, index) => {
+              return (
+                <Link href={e.Link} key={index}>
+                  {e.name}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <div className="pr-5">
-        <p className="text-center py-2">Powered by EPD DX Promotion</p>
+      <div className="pr-5 pt-5">
+        <p className="text-center pb-2">Powered by EPD DX Promotion</p>
         <hr />
         <p className="text-center pt-2">{time.toLocaleString()}</p>
       </div>
