@@ -24,10 +24,14 @@ export default function Navbar({}: Props) {
           <div className="pl-4 mr-20">
             <h2 className="text-[1rem]">MORE INFORMATION</h2>
           </div>
-          <div className="flex gap-x-32">
+          <div className="flex gap-x-8">
             {menu.map((e, index) => {
               return (
-                <Link href={e.Link} key={index}>
+                <Link
+                  href={e.Link}
+                  key={index}
+                  className="button w-[180px] h-[30px] duration-300 text-[1.2rem]"
+                >
                   {e.name}
                 </Link>
               );
@@ -36,9 +40,9 @@ export default function Navbar({}: Props) {
         </div>
       </div>
       <div className="pr-5 pt-5">
-        <p className="text-center pb-2">Powered by EPD DX Promotion</p>
+        <span className="text-center pb-2">Powered by EPD DX Promotion</span>
         <hr />
-        <p className="text-center pt-2">{time.toLocaleString()}</p>
+        <span className="text-center pt-2">{time.toLocaleString()}</span>
       </div>
     </div>
   );
