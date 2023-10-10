@@ -1,10 +1,14 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {};
 
 export default function Navbar({}: Props) {
-  const time = new Date();
+  const [times, setTime] = useState<string>("");
+  useEffect(() => {
+    const time = new Date();
+    setTime(time.toLocaleString());
+  }, [times]);
 
   const menu = [
     { name: "Safety Control", Link: "http://localhost:3000/SafetyControl" },
@@ -42,7 +46,7 @@ export default function Navbar({}: Props) {
       <div className="pr-5 pt-5">
         <span className="text-center pb-2">Powered by EPD DX Promotion</span>
         <hr />
-        <span className="text-center pt-2">{time.toLocaleString()}</span>
+        <span className="text-center pt-2">{times}</span>
       </div>
     </div>
   );

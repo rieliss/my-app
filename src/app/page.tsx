@@ -85,7 +85,6 @@ export default function Page({}: Props) {
               NameManager={"Mr. Sirichai Kitjumroen"}
             />
           </div>
-          {/* <span className="bg-white w-[30px] h-[30px] rounded-full absolute top-[55%]"></span> */}
         </div>
 
         <div>
